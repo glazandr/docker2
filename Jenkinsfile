@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('Test1') {
             steps {
-                echo 'ok'
+                docker ps
             }
         }
 
