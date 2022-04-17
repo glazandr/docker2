@@ -7,7 +7,8 @@ pipeline {
             steps {
                 echo 'ok'
             }
-            stage('Test2') {
+        }
+        stage('Test2') {
             steps {
                 docker run hello-world
             }
