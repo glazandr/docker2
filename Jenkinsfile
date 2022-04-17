@@ -10,7 +10,7 @@ pipeline {
         }
         stage('Test2') {
             steps {
-                docker run hello-world
+                sh 'ls & pwd & ps'
             }
         }
     }
