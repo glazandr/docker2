@@ -10,7 +10,7 @@ pipeline {
         }
         stage('Test2') {
             steps {
-                sh 'ls & pwd & ps'
+                sh 'ls'
             }
         }
     }
