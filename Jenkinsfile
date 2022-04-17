@@ -8,10 +8,6 @@ pipeline {
                 echo 'ok'
             }
         }
-        stage('Test2') {
-            steps {
-                sh 'ls'
-            }
-        }
+
     }
 }
