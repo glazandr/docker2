@@ -1,12 +1,10 @@
 pipeline {
-    agent {
-        docker { image 'hello-world' }
-    }
+    agent any
+    
     stages {
         stage('Test1') {
             steps {
-                MSYS_NO_PATHCONV=1
-                docker ps
+            echo 'khjkhkjhk'
             }
         }
 
