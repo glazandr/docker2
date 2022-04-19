@@ -1,4 +1,4 @@
-FROM centos
+FROM centos:7
 
 ARG JMETER_VERSION="5.2.1"
 ENV JMETER_HOME /opt/apache-jmeter-5.2.1
