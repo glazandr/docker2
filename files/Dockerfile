@@ -1,22 +1,13 @@
 FROM centos:7
-
-ARG JMETER_VERSION="5.2.1"
-ENV JMETER_HOME /opt/apache-jmeter-5.2.1
-ENV JMETER_BIN  /opt/apache-jmeter-5.2.1/bin
-ENV JMETER_DOWNLOAD_URL  https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.2.1.tgz
-ENV JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk/jre
-
-WORKDIR /opt/apache-jmeter-5.2.1
-
-ARG TZ="Europe/Amsterdam"
-RUN yum update -y
-RUN yum install java-1.8.0-openjdk java-1.8.0-openjdk-devel -y
-RUN yum install wget -y
-RUN wget http://apache.stu.edu.tw//jmeter/binaries/apache-jmeter-5.2.1.tgz
-RUN tar -xzf apache-jmeter-5.2.1.tgz 
-RUN mv apache-jmeter-5.2.1/* /opt/apache-jmeter-5.2.1
-RUN rm -r /opt/apache-jmeter-5.2.1/apache-jmeter-5.2.1
-
-RUN mkdir code/
-
-ENTRYPOINT ["/opt/apache-jmeter-5.2.1/code/entry.sh"]
+ENV container docker
+RUN (cd /lib/systemd/system/sysinit.target.wants/; for i in *; do [ $i == \
+systemd-tmpfiles-setup.service ] || rm -f $i; done); \
+rm -f /lib/systemd/system/multi-user.target.wants/*;\
+rm -f /etc/systemd/system/*.wants/*;\
+rm -f /lib/systemd/system/local-fs.target.wants/*; \
+rm -f /lib/systemd/system/sockets.target.wants/*udev*; \
+rm -f /lib/systemd/system/sockets.target.wants/*initctl*; \
+rm -f /lib/systemd/system/basic.target.wants/*;\
+rm -f /lib/systemd/system/anaconda.target.wants/*;
+VOLUME [ "/sys/fs/cgroup" ]
+CMD ["/usr/sbin/init"]
