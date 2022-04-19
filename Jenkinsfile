@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        docker { image 'jmeter' }
+        docker { image 'justb4/jmeter' }
     }
     stages {
         stage('Test') {
