@@ -1,11 +1,14 @@
 pipeline {
-    agent {
-        docker { image 'justb4/jmeter' }
-    }
+    agent any
     stages {
-        stage('Test') {
+        stage('Create container') {
             steps {
-                echo 'ok'
+
+                echo '============= start building image =============='
+                dir ('files') {
+                sh 'docker build . '
+                }
+                echo '============= finish building image =============='
             }
         }
     }
