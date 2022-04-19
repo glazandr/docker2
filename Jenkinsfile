@@ -1,14 +1,10 @@
 pipeline {
-    agent any
+    agent { dockerfile true }
     stages {
-        stage('Create container') {
+        stage('Test') {
             steps {
-
-                echo '============= start building image =============='
-                dir ('files') {
-                sh 'docker build . '
-                }
-                echo '============= finish building image =============='
+                sh 'node --version'
+                sh 'svn --version'
             }
         }
     }
