@@ -1,11 +1,11 @@
 pipeline {
     agent {
-        docker { image 'node:16.13.1-alpine' }
+        docker { image 'jmeter' }
     }
     stages {
         stage('Test') {
             steps {
-                sh 'node --version'
+                echo 'ok'
             }
         }
     }
