@@ -19,4 +19,4 @@ RUN rm -r /opt/apache-jmeter-5.4.3/apache-jmeter-5.4.3
 
 RUN mkdir code/
 
-ENTRYPOINT ["/opt/apache-jmeter-5.2.1/code/entry.sh"]
+ENTRYPOINT ["/opt/apache-jmeter-5.4.3/code/entry.sh"]
