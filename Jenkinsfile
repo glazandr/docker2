@@ -3,7 +3,9 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                echo "jr'
+                echo 'jr'
+                sh 'ls -l'
+                echo 'fkefkle'
             }
         }
     }
